@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #333;
+}
+.load{
+    width: 40vw;
+    height: 20vh;
+    position: relative;
+    right: -50px;
+}
+.load span.ball{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: blue;
+    left: calc(var(--i)*80px);
+    animation: ball 2s linear infinite calc(var(--i)*0.3s);
+}
+
+.load span.shadow{
+    width: 35px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgb(36, 34, 34);
+    left: calc(var(--i)*80px);
+    top: 130px;
+    z-index: -1;
+    animation: shadow 2s infinite linear calc(var(--i)*0.3s) both;
+}
+
+@keyframes ball{
+    0%,100%{
+        transform: scaleY(1);
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        transform: scaleY(0.6) translateY(25vh);
+        filter: hue-rotate(120deg);
+    }
+}
+
+@keyframes shadow{
+    0%,100%{
+        filter: blur(3px);
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+    50%{
+        filter: blur(1px);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
